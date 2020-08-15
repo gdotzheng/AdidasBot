@@ -13,7 +13,7 @@ pip install webdriver_manager
 ```
 
 ## Setup
-1) Clone respository
+1) Clone respository or download zip
 ```
 git clone https://github.com/gdotzheng/AdidasBot.git
 ```
