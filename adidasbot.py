@@ -8,9 +8,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def adidasbot(info):
 
-    # Asking user for shoe model and size
+    # Asking user for shoe model, size and retry delay
     model = input('Enter Desired Model\nex: BB6168\n')
     size = input('Enter Desired Size\n')
+    delay = int(input('Set retry (minutes) delay if Out of Stock\n'))
 
     # Keeping chromedriver open the whole time
     options = ChromeOptions()
@@ -41,7 +42,7 @@ def adidasbot(info):
             driver.get('https://www.adidas.com/us/delivery')
 
             # Entering in delivery information
-            print('Inputting delivery info')
+            print('Inputting delivery information')
             driver.find_element_by_xpath('//*[@id="app"]/div/div/div/div/div[2]/div/main/form/div/div[1]/div/div[1]/div/div/div[1]/input').send_keys(info["fname"])
             driver.find_element_by_xpath('//*[@id="app"]/div/div/div/div/div[2]/div/main/form/div/div[1]/div/div[2]/div/div/div[1]/input').send_keys(info["lname"])
             driver.find_element_by_xpath('//*[@id="app"]/div/div/div/div/div[2]/div/main/form/div/div[1]/div/div[3]/div/div/div[1]/input').send_keys(info["address"])
@@ -58,7 +59,7 @@ def adidasbot(info):
             driver.find_element_by_xpath('//*[@id="app"]/div/div/div/div/div[2]/div/main/div[9]/button').click()
 
             # Entering in payment information
-            print('Inputting card info')
+            print('Inputting card information')
             driver.implicitly_wait(30)
             driver.find_element_by_name('card.number').send_keys(info["cardnumber"])
             driver.implicitly_wait(30)
@@ -69,13 +70,14 @@ def adidasbot(info):
             # Placing the order
             driver.find_element_by_xpath('//*[@id="app"]/div/div/div/div/div[2]/div/main/button').click()
             print('Purchase complete')
-            
+
             break
+
         except NoSuchElementException:
 
             # Refreshes webpage every mintue to check for restocks
-            print("Cannot find size, Retrying in 1 minute")
-            time.sleep(60)
+            print("Cannot find size, Retrying in {} minute(s)".format(delay))
+            time.sleep((delay*60))
             pass
 
 adidasbot(info)
