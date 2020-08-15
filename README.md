@@ -17,7 +17,7 @@ pip install webdriver_manager
 ```
 git clone https://github.com/gdotzheng/AdidasBot.git
 ```
-2) Edit ```details.py```
+2) Edit ```details.py``` with autofill credentials 
 
 3) Run the script
 ```
