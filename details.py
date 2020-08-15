@@ -1,9 +1,10 @@
+# Change accordingly
 info = {
     'fname': 'test',
     'lname': 'test',
     'address': '123 street',
-    'city': 'Philadelphia',
-    'state': 'Pennsylvania',
+    'city': 'city',
+    'state': 'Pennsylvania', # not abberivated and capitalize first letter
     'zip': '12345',
     'phone': '1234567890',
     'email': 'test@test.com',
