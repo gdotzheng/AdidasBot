@@ -12,6 +12,11 @@ webdriver_manager module
 pip install webdriver_manager
 ```
 
+lxml
+```
+pip install lxml
+```
+
 ## Setup
 1) Clone respository or download zip
 ```
