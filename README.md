@@ -12,7 +12,7 @@ webdriver_manager module
 pip install webdriver_manager
 ```
 
-lxml
+lxml module
 ```
 pip install lxml
 ```
